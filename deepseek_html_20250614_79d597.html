@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arlomi Painting | Premium Painting Services in Columbus, OH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B35; /* Vibrant orange */
+            --secondary: #2EC4B6; /* Modern teal */
+            --dark: #1A1A1A; /* Rich black */
+            --light: #FFFFFF; /* Clean white */
+            --accent: #E71D36; /* Bold red */
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        
+        header {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+            margin-right: 15px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('painting-crew-working.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--light);
+            padding: 120px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 15px 35px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(231, 29, 54, 0.5);
+        }
+        
+        .secondary-button {
+            background-color: transparent;
+            border: 2px solid var(--light);
+        }
+        
+        .secondary-button:hover {
+            background-color: var(--light);
+            color: var(--dark);
+            border-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+            margin: 0;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 15px auto 0;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .service-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        
+        .testimonials-section {
+            background-color: var(--secondary);
+            padding: 80px 0;
+            color: var(--light);
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial p {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--light);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 50px 0;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact-section {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 80px 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            background-color: var(--primary);
+            color: var(--light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 15px;
+            color: var(--light);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: #111;
+            color: var(--light);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links {
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: var(--light);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            color: var(--dark);
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: var(--dark);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="arlomi-logo-transparent.png" alt="Arlomi Painting Logo" class="logo">
+                <h1>ARLOMI PAINTING</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Premium Painting Services in Columbus, OH</h1>
+            <p>Trusted by homeowners, businesses, and government agencies for exceptional quality and professionalism</p>
+            <div>
+                <a href="#contact" class="cta-button">GET FREE ESTIMATE</a>
+                <a href="tel:216120311" class="cta-button secondary-button">CALL NOW: (216) 120-3111</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="container">
+        <div class="section-title">
+            <h2>Our Professional Services</h2>
+        </div>
+        <div class="services">
+            <div class="service-card">
+                <img src="residential-painting.jpg" alt="Residential Painting" class="service-img">
+                <div class="service-content">
+                    <h3>Residential Painting</h3>
+                    <p>Transform your home with our meticulous interior and exterior painting services. We treat your home as if it were our own, delivering flawless finishes that last.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="commercial-painting.jpg" alt="Commercial Painting" class="service-img">
+                <div class="service-content">
+                    <h3>Commercial Painting</h3>
+                    <p>Trusted by banks, schools, and hospitals throughout Columbus. We understand the unique demands of commercial properties and work around your schedule.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="government-painting.jpg" alt="Government Projects" class="service-img">
+                <div class="service-content">
+                    <h3>Government Projects</h3>
+                    <p>As a certified contractor for US government facilities, we meet the highest standards for quality, security, and professionalism in every project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--light);">What Our Clients Say</h2>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"Miguel and his team painted our entire school district during summer break. Their professionalism and attention to detail were outstanding. They completed the project two weeks ahead of schedule!"</p>
+                    <p class="testimonial-author">- Sarah Johnson, Columbus School District</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Our hospital needed painting with minimal disruption. Arlomi worked night shifts to complete the job without affecting patient care. The quality of their work is exceptional."</p>
+                    <p class="testimonial-author">- Dr. Michael Chen, Ohio Health</p>
+                </div>
+                <div class="testimonial">
+                    <p>"As a government facility, we have strict requirements. Arlomi Painting exceeded all expectations with their meticulous preparation and flawless execution."</p>
+                    <p class="testimonial-author">- David Miller, Federal Building Manager</p>
+                </div>
+                <div class="testimonial">
+                    <p>"We've used Arlomi for all 12 of our bank branches. Their crews are professional, clean, and respectful of our customers. The paint jobs still look fresh years later."</p>
+                    <p class="testimonial-author">- Robert Williams, Chase Bank</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Miguel personally oversaw our luxury condo painting project. His attention to detail and commitment to perfection impressed our entire board."</p>
+                    <p class="testimonial-author">- Karen Smith, HOA President</p>
+                </div>
+                <div class="testimonial">
+                    <p>"After a bad experience with another painter, Arlomi fixed all the problems and delivered the beautiful home we envisioned. Their crew was courteous and skilled."</p>
+                    <p class="testimonial-author">- The Thompson Family</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Our restaurant needed a complete makeover before grand opening. Arlomi worked around the clock to meet our impossible deadline without compromising quality."</p>
+                    <p class="testimonial-author">- Chef Antonio Rivera</p>
+                </div>
+                <div class="testimonial">
+                    <p>"The exterior paint job on our historic home has held up beautifully against Ohio's harsh weather. Quality materials and craftsmanship make all the difference."</p>
+                    <p class="testimonial-author">- Emily & James Wilson</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Miguel's team transformed our office building over one weekend. Employees returned Monday to a bright, professional workspace that boosted morale."</p>
+                    <p class="testimonial-author">- Jennifer Lee, Tech Company CEO</p>
+                </div>
+                <div class="testimonial">
+                    <p>"As a property manager, I've worked with many painters. Arlomi stands out for their reliability, quality work, and professional crews. They're now our go-to painters."</p>
+                    <p class="testimonial-author">- Mark Thompson, Commercial Property Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="container">
+        <div class="section-title">
+            <h2>Our Work in Action</h2>
+        </div>
+        <div class="gallery">
+            <img src="crew-1.jpg" alt="Arlomi crew painting exterior">
+            <img src="crew-2.jpg" alt="Professional interior painting">
+            <img src="crew-3.jpg" alt="Detailed trim work">
+            <img src="crew-4.jpg" alt="Commercial painting project">
+            <img src="crew-5.jpg" alt="Government facility painting">
+            <img src="crew-6.jpg" alt="Residential transformation">
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Arlomi Painting</h3>
+                    <p>Ready to transform your space? Contact us today for a free estimate!</p>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:216120311" style="color: var(--light);">(216) 120-3111</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:arlomipainting@gmail.com" style="color: var(--light);">arlomipainting@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Office</h4>
+                            <p>470 W Broad St suite 1311<br>Columbus, OH 43215</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100064074339754" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Your Phone">
+                        <textarea placeholder="Tell us about your project" required></textarea>
+                        <button type="submit" class="cta-button">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <img src="arlomi-logo-transparent.png" alt="Arlomi Painting Logo" style="height: 50px; margin-bottom: 20px;">
+            <div class="footer-links">
+                <a href="#privacy-policy" id="privacy-link">Privacy Policy</a>
+                <a href="#terms" id="terms-link">Terms & Conditions</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+            <p>&copy; 2025 Arlomi Painting. All Rights Reserved.</p>
+            <p>Serving Columbus, OH and surrounding areas</p>
+        </div>
+    </footer>
+
+    <!-- Modal Popups -->
+    <div id="privacy-policy" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p>Last Updated: June 2025</p>
+            <h3>Information We Collect</h3>
+            <p>We may collect personal information including your name, contact details, project information, and payment details when you request our services or contact us.</p>
+            <h3>How We Use Your Information</h3>
+            <p>Your information is used to provide painting services, process payments, communicate with you about your project, and improve our services. We do not sell or share your information with third parties for marketing purposes.</p>
+            <h3>Data Security</h3>
+            <p>We implement appropriate security measures to protect your personal information against unauthorized access or disclosure.</p>
+        </div>
+    </div>
+
+    <div id="terms" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Terms & Conditions</h2>
+            <h3>Service Agreement</h3>
+            <p>All estimates are valid for 30 days and may be adjusted based on final project scope. A signed contract and deposit are required to schedule work.</p>
+            <h3>Payment Terms</h3>
+            <p>Payment schedules will be outlined in your contract. Final payment is due upon project completion. We accept cash, checks, and major credit cards.</p>
+            <h3>Warranty</h3>
+            <p>We provide a 2-year warranty on workmanship for residential projects and a 1-year warranty for commercial projects against peeling, blistering, or flaking under normal conditions.</p>
+            <h3>Project Preparation</h3>
+            <p>Clients are responsible for removing fragile items, wall hangings, and clearing work areas before our crew arrives. We will move and replace furniture as needed.</p>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const privacyLink = document.getElementById('privacy-link');
+        const termsLink = document.getElementById('terms-link');
+        const privacyModal = document.getElementById('privacy-policy');
+        const termsModal = document.getElementById('terms');
+        const closeButtons = document.getElementsByClassName('close');
+
+        privacyLink.onclick = function(e) {
+            e.preventDefault();
+            privacyModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        termsLink.onclick = function(e) {
+            e.preventDefault();
+            termsModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        for (let i = 0; i < closeButtons.length; i++) {
+            closeButtons[i].onclick = function() {
+                privacyModal.style.display = 'none';
+                termsModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == privacyModal) {
+                privacyModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target == termsModal) {
+                termsModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
